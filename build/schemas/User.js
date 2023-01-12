@@ -1,5 +1,12 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true});var _mongoose = require('mongoose');
 
+
+
+
+
+
+
+
 const UserSchema = new (0, _mongoose.Schema)({
     email: String,
     firstName: String,
@@ -8,4 +15,8 @@ const UserSchema = new (0, _mongoose.Schema)({
     timestamps: true
 })
 
-exports. default = _mongoose.model.call(void 0, 'User', UserSchema)
+UserSchema.methods.fullName = function ()  {
+    return this.firstName + ' ' + this.lastName
+}
+
+exports. default = _mongoose.model('User', UserSchema)
